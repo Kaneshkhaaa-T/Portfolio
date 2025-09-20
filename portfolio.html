@@ -1,415 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaneshkha T | Portfolio</title>
-  <style>
-    /* ===== Global Styles ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      line-height: 1.6;
-      color: #eee;
-      background: #121212;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    h1, h2, h3 {
-      margin-bottom: 15px;
-      color: #00adb5;
-    }
-
-    section {
-      padding: 50px 8%;
-      min-height: auto;
-    }
-
-    /* ===== Navbar ===== */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #1e1e1e;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 10%;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-
-    nav .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #00adb5;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li a {
-      color: #fff;
-      transition: 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #00adb5;
-    }
-
-    /* ===== Hamburger Menu ===== */
-    .menu-btn {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-btn span {
-      height: 3px;
-      width: 25px;
-      background: #fff;
-      margin: 4px 0;
-      transition: 0.3s;
-    }
-
-    #menu-toggle {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        position: fixed;
-        top: 60px;
-        left: -100%;
-        flex-direction: column;
-        background: #1e1e1e;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        padding: 20px 0;
-      }
-      #home h1 {
-    font-size: 28px; /* smaller heading */
-  }
-
-  #home p {
-    font-size: 14px; /* smaller subtitle */
-  }
-
-  .social-links a {
-    padding: 8px 14px; /* smaller buttons */
-    font-size: 14px;
-  }
-      #menu-toggle:checked ~ ul {
-        left: 0;
-      }
-
-      .menu-btn {
-        display: flex;
-      }
-    }
-    @media (max-width: 480px) {
-  #home h1 {
-    font-size: 22px; /* extra small screen */
-  }
-
-  #home p {
-    font-size: 12px;
-  }
-
-  .social-links {
-    flex-direction: column; /* stack links vertically on very small screens */
-  }
-}
-
-    /* ===== Hero Section ===== */
-    #home {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(to right, #00adb5, #222831);
-      color: #fff;
-      padding: 80px 8% 60px;
-      min-height: 70vh;
-    }
-
-    #home h1 {
-      font-size: 30px;
-      color: #fff;
-    }
-
-    #home p {
-      font-size: 18px;
-      margin: 10px 0 20px;
-      color: #ddd;
-    }
-
-    /* Social Links Row */
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .social-links a {
-      padding: 10px 18px;
-      background: #00adb5;
-      color: #fff;
-      border-radius: 25px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .social-links a:hover {
-      background: #fff;
-      color: #00adb5;
-    }
-
-    /* ===== About Section ===== */
-    #about {
-      background: #1e1e1e;
-      text-align: center;
-      border-radius: 10px;
-      padding: 60px 8%;
-      margin: 20px auto;
-    }
-
-    /* ===== Education Section ===== */
-    #education {
-      background: #121212;
-    }
-
-    .edu-item {
-      margin-bottom: 20px;
-      padding: 15px;
-      background: #1e1e1e;
-      border-radius: 8px;
-    }
-
-    .edu-item h3 {
-      color: #00adb5;
-    }
-
-    /* ===== Skills Section ===== */
-    #skills ul, #tools ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      list-style: none;
-      margin-top: 20px;
-    }
-
-    #skills ul li, #tools ul li {
-      background: #1e1e1e;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-      border-radius: 8px;
-      font-weight: bold;
-      border: 1px solid #00adb5;
-    }
-
-    /* ===== Projects Section ===== */
-    #projects .project {
-      margin-bottom: 30px;
-      padding: 20px;
-      border-radius: 10px;
-      background: #1e1e1e;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-    }
-
-    #projects .project h3 {
-      color: #00adb5;
-    }
-
-    #projects .project p {
-      margin: 5px 0;
-      color: #ddd;
-    }
-
-    .project .btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: #ff9800;
-  color: #121212;
-  border-radius: 20px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.project .btn:hover {
-  background: #e68a00;
-}
-
-    /* ===== Contact Section ===== */
-    #contact {
-      background: #222831;
-      color: #fff;
-      text-align: center;
-      border-radius: 10px;
-      padding: 60px 8%;
-    }
-
-    #contact a {
-      display: inline-block;
-      margin: 10px;
-      font-weight: bold;
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      background: #1e1e1e;
-      color: #aaa;
-      text-align: center;
-      padding: 15px 0;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaneshkha T | Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="border-b border-gray-800 py-6 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">Kaneshkha T</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#education" class="hover:text-blue-400 transition">Education</a>
+                <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+            <button class="md:hidden">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+    </nav>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">Kaneshkha T</div>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="menu-btn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#tools">Tools</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <!-- Hero Section -->
+    <section class="py-20 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Kaneshkha T</span></h1>
+                <h2 class="text-xl md:text-2xl text-blue-400 mb-6">Aspiring Software Developer</h2>
+                <p class="text-gray-400 mb-8 max-w-lg">I build exceptional digital experiences with focus on UI/UX design, frontend development and Android app development.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition">Contact Me</a>
+                    <a href="#projects" class="border border-blue-400 text-blue-400 hover:bg-blue-900/30 px-6 py-3 rounded-lg transition">View Projects</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-500/20">
+                        <img src="http://static.photos/technology/640x360/42" alt="Profile" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <div class="flex items-center space-x-2">
+                            <i data-feather="code" class="text-blue-400"></i>
+                            <span class="font-medium">Currently Working On</span>
+                        </div>
+                        <p class="text-sm text-gray-400">UI/UX & Web/App Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Hero Section -->
-  <section id="home">
-    <h1>Hello, I'm <span style="color:#00ffcc;">Kaneshkha T</span></h1>
-    <p>Aspiring Software Developer | UI/UX Enthusiast</p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/kaneshkha-t-%F0%9F%93%88-905a12281/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Kaneshkha-T" target="_blank">GitHub</a>
-      <a href="mailto:kaneshkhaoffc@gmail.com">Email</a>
-      <a href="https://leetcode.com/u/Kaneshkhaa_T/" target="_blank">LeetCode</a>
-    </div>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 lg:px-12 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400">Objective</h3>
+                    <p class="text-gray-400 mb-6">I consider myself a responsible and motivated person, eager to gain valuable experience through your company and contribute by utilizing and enhancing my skills in a professional environment.</p>
+                    <p class="text-gray-400">Seeking an internship opportunity in UI/UX, web development (HTML/CSS/JS) and Android app development, while also working with OOP-related concepts.</p>
+                </div>
+                <div data-aos="fade-left">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400">Personal Info</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <i data-feather="mail" class="text-blue-400"></i>
+                            <span class="text-gray-400">kaneshkhaoffc@gmail.com</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i data-feather="phone" class="text-blue-400"></i>
+                            <span class="text-gray-400">+91 8148752255</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i data-feather="github" class="text-blue-400"></i>
+                            <a href="https://github.com/Kaneshkha-T" class="text-gray-400 hover:text-blue-400 transition">github.com/Kaneshkha-T</a>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i data-feather="linkedin" class="text-blue-400"></i>
+                            <a href="https://www.linkedin.com/in/kaneshkha-t-%F0%9F%93%88-905a12281/" class="text-gray-400 hover:text-blue-400 transition">LinkedIn Profile</a>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i data-feather="code" class="text-blue-400"></i>
+                            <a href="https://leetcode.com/u/Kaneshkhaa_T/" class="text-gray-400 hover:text-blue-400 transition">LeetCode Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I consider myself a responsible and motivated person, eager to gain valuable experience and contribute by utilizing and enhancing my skills. I’m seeking an internship opportunity in UI/UX and web development with HTML, CSS, JS, and OOP concepts.</p>
-  </section>
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Education</h2>
+            <div class="space-y-8">
+                <div class="bg-gray-800/50 p-6 rounded-xl card-hover transition" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-400">B.Tech Artificial Intelligence And Data Science</h3>
+                            <p class="text-gray-400">Bannari Amman Institute of Technology (2022-2026)</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-sm">CGPA: 7.57</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 p-6 rounded-xl card-hover transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-400">Higher Secondary Certificate (HSC)</h3>
+                            <p class="text-gray-400">Kamarajar Matriculation Higher Secondary School (2019-2020)</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-sm">Percentage: 96%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 p-6 rounded-xl card-hover transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div>
+                            <h3 class="text-xl font-semibold text-blue-400">Secondary School Leaving Certificate (SSLC)</h3>
+                            <p class="text-gray-400">Kurinji Matriculation Higher Secondary School (2020-2021)</p>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-sm">Percentage: 86%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Education Section -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="edu-item">
-      <h3>B.Tech Artificial Intelligence & Data Science</h3>
-      <p>Bannari Amman Institute of Technology (2022 - 2026) | CGPA: 7.57</p>
-    </div>
-    <div class="edu-item">
-      <h3>HSC</h3>
-      <p>Kamarajar Matric Hr Sec School (2019 - 2020) | 96%</p>
-    </div>
-    <div class="edu-item">
-      <h3>SSLC</h3>
-      <p>Kurinji Matric Hr Sec School (2020 - 2021) | 86%</p>
-    </div>
-  </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 lg:px-12 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Technical Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up">
+                    <i data-feather="database" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">MySQL</h3>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up" data-aos-delay="50">
+                    <i data-feather="code" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">Java (OOP)</h3>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up" data-aos-delay="100">
+                    <i data-feather="layers" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">DSA</h3>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up" data-aos-delay="150">
+                    <i data-feather="layout" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">HTML/CSS/JS</h3>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up" data-aos-delay="200">
+                    <i data-feather="server" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">DBMS</h3>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up" data-aos-delay="250">
+                    <i data-feather="pen-tool" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">UI/UX Design</h3>
+                </div>
+            </div>
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>MySQL</li>
-      <li>Java (OOPs)</li>
-      <li>HTML, CSS, JS</li>
-      <li>DBMS</li>
-      <li>UI/UX Design</li>
-      <li>Data Structures</li>
-    </ul>
-  </section>
+            <h3 class="text-xl font-semibold mt-16 mb-6 text-center text-blue-400" data-aos="fade-up">Developer Tools</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up">
+                    <i data-feather="code" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">VS Code</h3>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up" data-aos-delay="50">
+                    <i data-feather="git-branch" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">GitHub</h3>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up" data-aos-delay="100">
+                    <i data-feather="image" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">Figma</h3>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up" data-aos-delay="150">
+                    <i data-feather="database" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">WorkBench</h3>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center card-hover transition" data-aos="fade-up" data-aos-delay="200">
+                    <i data-feather="cpu" class="w-10 h-10 mx-auto text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold">Eclipse</h3>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Developer Tools -->
-  <section id="tools">
-    <h2>Developer Tools</h2>
-    <ul>
-      <li>VS Code</li>
-      <li>GitHub</li>
-      <li>Figma</li>
-      <li>MySQL Workbench</li>
-      <li>Eclipse</li>
-    </ul>
-  </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800/50 rounded-xl overflow-hidden card-hover transition" data-aos="fade-up">
+                    <div class="h-48 bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+                        <i data-feather="globe" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-400">FoodMad Website</h3>
+                        <p class="text-gray-400 mb-4">A Food Ordering Website developed entirely using HTML and CSS, focusing on frontend design and layout.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-xs">HTML</span>
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-xs">CSS</span>
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl overflow-hidden card-hover transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                        <i data-feather="smartphone" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-400">FoodMobile Application</h3>
+                        <p class="text-gray-400 mb-4">A mobile application developed using Kotlin in Android Studio for food ordering and exploration.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-xs">Kotlin</span>
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-xs">Android Studio</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-xl overflow-hidden card-hover transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-r from-pink-600 to-red-600 flex items-center justify-center">
+                        <i data-feather="activity" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-400">Hospital Management System</h3>
+                        <p class="text-gray-400 mb-4">Console-based application using Java and OOP principles to manage hospital operations.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-xs">Java</span>
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-xs">OOP</span>
+                            <span class="bg-blue-900/50 text-blue-400 px-3 py-1 rounded-full text-xs">Eclipse</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    
-    <div class="project">
-      <h3>FoodMad Website</h3>
-      <p>A Food Ordering Website developed entirely using HTML and CSS, focusing purely on the frontend design and layout. The aim was to provide a user-friendly platform where customers can browse food items, view prices, and simulate ordering.</p>
-      <p><b>Frontend:</b> HTML, CSS, JS</p>
-      <a href="https://kaneshkhaaa-t.github.io/FoodMad/intro.html" target="_blank" class="btn">View Project</a>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 lg:px-12 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Get In Touch</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <i data-feather="mail" class="text-blue-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-gray-400">kaneshkhaoffc@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i data-feather="phone" class="text-blue-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <p class="text-gray-400">+91 8148752255</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i data-feather="map-pin" class="text-blue-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p class="text-gray-400">India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">Connect With Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/Kaneshkha-T" class="bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition">
+                                <i data-feather="github" class="text-blue-400"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/kaneshkha-t-%F0%9F%93%88-905a12281/" class="bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition">
+                                <i data-feather="linkedin" class="text-blue-400"></i>
+                            </a>
+                            <a href="https://leetcode.com/u/Kaneshkhaa_T/" class="bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition">
+                                <i data-feather="code" class="text-blue-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium">Your Name</label>
+                            <input type="text" id="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium">Your Email</label>
+                            <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 text-sm font-medium">Your Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Hello Kaneshkha..."></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="project">
-      <h3>Movie View UI</h3>
-      <p>This project showcases the UI/UX design of a Theater Website, crafted to deliver a seamless and immersive experience for users exploring upcoming shows and events. The interface is designed with modern aesthetics, easy navigation, and engaging interactions.</p>
-      <p><b>Design:</b> Figma (Frames, Styles, Components, Typography, Animations)</p>
-    </div>
+    <!-- Footer -->
+    <footer class="py-8 px-6 lg:px-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-gray-400 mb-4 md:mb-0">
+                &copy; 2024 Kaneshkha T. All rights reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
 
-    <div class="project">
-      <h3>Hospital Management System</h3>
-      <p>A console-based Hospital Management System using Java and OOP principles. It manages core operations like patient registration, doctor details, appointments, and medical records in a structured and efficient way.</p>
-      <p><b>OOP Concepts:</b> Classes, Objects, Inheritance, Encapsulation, Polymorphism</p>
-      <p><b>Tools:</b> Java, Eclipse</p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>📞 8148752255</p>
-    <p>✉️ <a href="mailto:kaneshkhaoffc@gmail.com">kaneshkhaoffc@gmail.com</a></p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/kaneshkha-t-%F0%9F%93%88-905a12281/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Kaneshkha-T" target="_blank">GitHub</a>
-      <a href="mailto:kaneshkhaoffc@gmail.com">Email</a>
-      <a href="https://leetcode.com/u/Kaneshkhaa_T/" target="_blank">LeetCode</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Kaneshkha T. All Rights Reserved.</p>
-  </footer>
-
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        feather.replace();
+    </script>
 </body>
 </html>
